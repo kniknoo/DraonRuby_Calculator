@@ -44,7 +44,10 @@ class Calculator
   def show
     [[@x, @y, @w, @h, @unit_color].solid, @buttons.map(&:show),
      [500, 550, 275, -65, [56, 93, 56]].solid,
-     [500 + 273, 550 - 20, @display_text, 1, 2, [0,0,0,255], '/fonts/DSEG7Classic-Regular.ttf'].label]
+     [500 + 270, 550 - 20, "8.8.8.8.8.8.8.8.8.8.8.", 3, 2, [0,0,0,35],
+     '/fonts/DSEG7ModernMini-Regular.ttf'].label,
+     [500 + 270, 550 - 20, @display_text, 3, 2, [0,0,0,255],
+     '/fonts/DSEG7ModernMini-Regular.ttf'].label]
   end
 
   def check_buttons
@@ -66,7 +69,7 @@ class Calculator
     return if @display_text == '0' && digit == '0'
 
     @display_text = '' if @display_text == '0' || @clear_next
-    return if @display_text.size > 12
+    return if @display_text.size > 10
 
     @clear_next = false
     @display_text += digit
